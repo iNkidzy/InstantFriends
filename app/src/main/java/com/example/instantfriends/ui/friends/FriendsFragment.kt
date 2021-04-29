@@ -1,4 +1,4 @@
-package com.example.instantfriends
+package com.example.instantfriends.ui.friends
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.instantfriends.R
 import com.example.instantfriends.dummy.DummyContent
 
 /**
  * A fragment representing a list of Items.
  */
-class navigation_friends : Fragment() {
+class FriendsFragment : Fragment() {
 
     private var columnCount = 1
 
@@ -52,7 +53,7 @@ class navigation_friends : Fragment() {
         // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =
-            navigation_friends().apply {
+            FriendsFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                 }

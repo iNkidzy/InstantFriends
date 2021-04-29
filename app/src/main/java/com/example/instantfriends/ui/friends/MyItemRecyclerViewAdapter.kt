@@ -1,10 +1,11 @@
-package com.example.instantfriends
+package com.example.instantfriends.ui.friends
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.instantfriends.R
 
 import com.example.instantfriends.dummy.DummyContent.DummyItem
 
