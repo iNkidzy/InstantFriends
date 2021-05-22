@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
                     .setAction("Action", null).show() }
         //Fab button
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navView.background = null
+        navView.menu.getItem(1).isEnabled = false
 
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
