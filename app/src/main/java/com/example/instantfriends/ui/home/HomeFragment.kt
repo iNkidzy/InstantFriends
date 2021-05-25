@@ -15,24 +15,25 @@ import com.google.android.material.snackbar.Snackbar
 class HomeFragment : Fragment() {
 
     //This Fragment is connected to the view model
-    private lateinit var homeViewModel: HomeViewModel
+   // private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        return inflater.inflate(R.layout.fragment_navigation_home, container, false)
 
 
 
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+       /* homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_navigation_home, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
 
          homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
-        return root
+        return root */
     }
 
 
