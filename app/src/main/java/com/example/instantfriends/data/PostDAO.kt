@@ -5,6 +5,7 @@ import androidx.room.*
 
 @Dao
 interface PostDAO {
+
     @Query("SELECT * from BEPost order by id")
     fun getAll(): LiveData<List<BEPost>>
 

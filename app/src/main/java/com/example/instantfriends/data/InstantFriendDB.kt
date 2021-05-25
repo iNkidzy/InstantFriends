@@ -7,4 +7,5 @@ import androidx.room.RoomDatabase
 abstract class InstantFriendDatabase : RoomDatabase() {
 
     abstract fun postDAO(): PostDAO
+    abstract fun friendDAO(): FriendDAO
 }
