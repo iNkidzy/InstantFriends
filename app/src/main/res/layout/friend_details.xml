@@ -151,10 +151,10 @@
         android:id="@+id/saveFriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="center"
         android:layout_marginTop="60dp"
         android:onClick="onClickSaveFriend"
-        android:text="Save" />
+        android:text="Save"/>
 
     <Button
         android:id="@+id/deleteFriend"
@@ -164,9 +164,8 @@
         android:layout_gravity="bottom|left"
         android:layout_marginTop="-60dp"
         android:onClick="onClickDeleteFriend"
-        app:icon="@drawable/delete"
+        app:icon="@drawable/ic_delete"
         android:visibility="gone"/>
-
 
 </LinearLayout>
 
