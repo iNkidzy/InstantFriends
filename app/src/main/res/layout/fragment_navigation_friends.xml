@@ -6,12 +6,12 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/linearLayout"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" >
-    </LinearLayout>
+        android:layout_gravity="fill_horizontal" >
+
 
     <ListView
         android:id="@+id/ListView"
@@ -20,4 +20,5 @@
         android:layout_gravity="center_horizontal"
         />
 
+    </LinearLayout>
 </LinearLayout>
