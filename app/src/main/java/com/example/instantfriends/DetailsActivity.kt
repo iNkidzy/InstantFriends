@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.instantfriends.data.BEFriend
 import com.example.instantfriends.data.FriendRepository
+import com.google.android.material.textfield.TextInputEditText
 
 class DetailsActivity: AppCompatActivity() {
 
@@ -85,6 +86,7 @@ class DetailsActivity: AppCompatActivity() {
         mRep.delete(friend)
         finish()
     }
+
     private fun onClickCall(view: View){
         val friendPhone: TextView = findViewById(R.id.numberField)
         val intent = Intent(Intent.ACTION_DIAL)
