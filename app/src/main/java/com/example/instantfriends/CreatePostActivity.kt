@@ -18,6 +18,8 @@ class CreatePostActivity : AppCompatActivity(){
         setContentView(R.layout.create_post)
     }
 
+    //Permissions for camera
+
     private fun clickNewPost(view: View){
         val mRep = PostRepository.get()
         val postDescription: TextInputEditText = findViewById(R.id.postDescription)
