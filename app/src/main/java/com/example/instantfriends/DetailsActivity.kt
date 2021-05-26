@@ -49,7 +49,7 @@ class DetailsActivity: AppCompatActivity() {
         }
     }
 
-    private fun onClickSaveFriend(view: View){
+    fun onClickSaveFriend(view: View){
         val mRep = FriendRepository.get()
         val friendName: TextView = findViewById(R.id.nameField)
         val friendPhone: TextView = findViewById(R.id.numberField)
@@ -72,7 +72,7 @@ class DetailsActivity: AppCompatActivity() {
         }
     }
 
-    private fun onClickDeleteFriend(view: View){
+    fun onClickDeleteFriend(view: View){
         val mRep = FriendRepository.get()
         val friendName: TextView = findViewById(R.id.nameField)
         val friendPhone: TextView = findViewById(R.id.numberField)
@@ -87,13 +87,13 @@ class DetailsActivity: AppCompatActivity() {
         finish()
     }
 
-    private fun onClickCall(view: View){
+    fun onClickCall(view: View){
         val friendPhone: TextView = findViewById(R.id.numberField)
         val intent = Intent(Intent.ACTION_DIAL)
         intent.data = Uri.parse("tel:${friendPhone.text}")
         startActivity(intent)
     }
-    private fun onClickEmail(view: View) {
+    fun onClickEmail(view: View) {
         val friendEmail: TextView = findViewById(R.id.emailField)
         val emailIntent = Intent(Intent.ACTION_SEND)
         emailIntent.type="plain/text"
@@ -103,7 +103,7 @@ class DetailsActivity: AppCompatActivity() {
             "Hey, this email is sent to you by the app I just created")
         startActivity(emailIntent)
     }
-    private fun onClickMessage(view: View){
+    fun onClickMessage(view: View){
         val friendNumber: TextView = findViewById(R.id.numberField)
         val sendIntent = Intent(Intent.ACTION_VIEW)
         sendIntent.data=Uri.parse("sms:${friendNumber.text}")

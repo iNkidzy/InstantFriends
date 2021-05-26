@@ -16,7 +16,6 @@ import kotlin.reflect.KClass
 
 class MainActivity : AppCompatActivity() {
 
-    var cache: List<BEFriend>? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +35,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-    fun tempFriends(view: View) {}
+    fun tempFriends(view: View) {
+        val intent = Intent(this, FriendsActivity::class.java).also {
+            startActivity(it)
+        }
+    }
 
 
 
