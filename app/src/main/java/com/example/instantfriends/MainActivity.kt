@@ -14,7 +14,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
-    var cache: List<BEFriend>? = null;
 
     //val fab4: FloatingActionButton = findViewById(R.id.fab4)
     //val fab5: FloatingActionButton = findViewById(R.id.fab5)
@@ -77,7 +76,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-    fun tempFriends(view: View) {}
+    fun tempFriends(view: View) {
+        val intent = Intent(this, FriendsActivity::class.java).also {
+            startActivity(it)
+        }
+    }
 
 
 

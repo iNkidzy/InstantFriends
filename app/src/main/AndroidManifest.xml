@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".DetailsActivity"></activity>
         <activity android:name=".CreatePostActivity"></activity>
+        <activity android:name=".FriendsActivity"></activity>
     </application>
 
 </manifest>

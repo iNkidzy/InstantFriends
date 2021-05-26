@@ -2,7 +2,6 @@ package com.example.instantfriends
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -46,7 +45,7 @@ class FriendsActivity: AppCompatActivity() {
             if  (friend != null)
             {
                 val intent = Intent(this, DetailsActivity::class.java).also {
-                    it.putExtra("position", id)
+                    it.putExtra("friendId", id)
                     startActivity(it)
                 }
             }
@@ -54,7 +53,7 @@ class FriendsActivity: AppCompatActivity() {
         val mRep = FriendRepository.get()
         mRep.getByid(id).observeOnce(this, friendObserver)
     }
-    private fun onClickNewFriend(view: View){
+    fun onClickNewFriend(view: View){
         val intent = Intent(this, DetailsActivity::class.java).also {
             startActivity(it)
         }
