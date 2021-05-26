@@ -31,8 +31,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         // Fab button
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with opening new post activity", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show() }
+            val intent = Intent(this, CreatePostActivity::class.java).also {
+                startActivity(it)
+            }}
         //Fab button
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.background = null
