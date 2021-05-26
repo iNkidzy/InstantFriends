@@ -3,6 +3,7 @@ package com.example.instantfriends
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListAdapter
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         FriendRepository.initialize(this)
         PostRepository.initialize(this)
 
-        setupDataObserver()
+       // setupDataObserver()
 
     }
 
@@ -84,5 +85,13 @@ class MainActivity : AppCompatActivity() {
         }
         val mRep = FriendRepository.get()
         mRep.getByid(id).observeOnce(this,friendObserver)
+    }
+
+
+    private fun onClickNewFriend(view: View){
+        val intent = Intent(this, DetailsActivity::class.java).also {
+            startActivity(it)
+        }
+
     }
 }
