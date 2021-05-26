@@ -39,13 +39,13 @@ class MainActivity : AppCompatActivity() {
         navView.background = null
         navView.menu.getItem(1).isEnabled = false
 
-        val navController = findNavController(R.id.nav_host_fragment)
+       // val navController = findNavController(R.id.)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_home, R.id.navigation_friends))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+       // val appBarConfiguration = AppBarConfiguration(setOf(
+        //    R.id.navigation_home, R.id.navigation_friends))
+       // setupActionBarWithNavController(navController, appBarConfiguration)
+       // navView.setupWithNavController(navController)
 
         //Initialized local DB's
         FriendRepository.initialize(this)
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     //loads all friends from DB and sets up the listview with entities loaded
     private fun setupDataObserver(){
         //Load the list fragment for friend here, dont think this is done right
-        val lvNames = findViewById<ListView>(R.id.navigation_friends)
+        val lvNames = findViewById<ListView>(R.id.activity_friends)
         val mRep = FriendRepository.get()
         val nameObserver = Observer<List<BEFriend>>{ friends ->
             cache = friends;
