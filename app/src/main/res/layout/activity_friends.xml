@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
-
- <!--   <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickNewFriend"
-        android:text="New Friend">
-
-    </Button> -->
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -80,7 +71,6 @@
 
 
         </LinearLayout>
-    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
