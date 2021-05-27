@@ -42,8 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:contentDescription="newFriend"
-            android:src="@drawable/ic_add"
-            app:backgroundTint="@color/teal_200"
+            android:src="@drawable/ic_newfriend"
+            app:backgroundTint="@color/pink"
             app:layout_anchor="@id/frame"
             app:layout_anchorGravity="bottom|right" />
 
@@ -53,8 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:contentDescription="posts"
-            android:src="@drawable/ic_add"
-            app:backgroundTint="@color/blue"
+            android:src="@drawable/ic_home"
+            app:backgroundTint="@color/pink"
             app:layout_anchor="@id/fab"
             app:layout_anchorGravity="bottom|right" />
 
@@ -65,7 +65,7 @@
             android:layout_margin="16dp"
             android:contentDescription="Expand"
             android:src="@drawable/ic_add"
-            app:backgroundTint="@color/blue"
+            app:backgroundTint="@color/blu"
             app:layout_anchor="@id/fab"
             app:layout_anchorGravity="bottom|right" />
 
