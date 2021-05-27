@@ -29,13 +29,10 @@ class CreatePostActivity : AppCompatActivity(){
 
     private var imgPath: String = ""
     var mFile: File? = null
-
+    val CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE_BY_FILE = 101
     private val PERMISSION_REQUEST_CODE = 1
     val TAG = "xyz"
 
-    private val permissions = arrayOf(
-        Manifest.permission.ACCESS_FINE_LOCATION,
-        Manifest.permission.ACCESS_COARSE_LOCATION)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +40,7 @@ class CreatePostActivity : AppCompatActivity(){
         checkPermissions()
     }
 
-    private fun clickNewPost(view: View){
+     fun clickNewPost(view: View){
         val mRep = PostRepository.get()
         val postDescription: TextInputEditText = findViewById(R.id.postDescription)
 
@@ -61,7 +58,7 @@ class CreatePostActivity : AppCompatActivity(){
             Toast.makeText(this, "Please take a photo first", Toast.LENGTH_SHORT).show()
         }
     }
-/*
+
     fun onTakeAsFile(view: View) {
         mFile = getOutputMediaFile("Camera01") // create a file to save the image
 
@@ -71,16 +68,50 @@ class CreatePostActivity : AppCompatActivity(){
         }
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
-        val Friend = "com.example.friend"
+        val InstantFriends = "com.example.instantfriends"
         intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(
             this,
-            "${Friend}.provider",  //use your app signature + ".provider"
+            "${InstantFriends}.provider",  //use your app signature + ".provider"
             mFile!!))
 
         if (intent.resolveActivity(packageManager) != null) {
             startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE_BY_FILE)
         } else Log.d(TAG, "camera app could NOT be started")
     }
+
+    private fun checkPermissions() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return
+        val permissions = mutableListOf<String>()
+        if ( ! isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE) ) permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        if ( ! isGranted(Manifest.permission.CAMERA) ) permissions.add(Manifest.permission.CAMERA)
+        if (permissions.size > 0)
+            ActivityCompat.requestPermissions(this, permissions.toTypedArray(), PERMISSION_REQUEST_CODE)
+    }
+
+    private fun isGranted(permission: String): Boolean =
+        ActivityCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
+    // return a new file with a timestamp name in a folder named [folder] in
+    // the external directory for pictures.
+    // Return null if the file cannot be created
+    private fun getOutputMediaFile(folder: String): File? {
+        // in an emulated device you can see the external files in /sdcard/Android/data/<your app>.
+        val mediaStorageDir = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), folder)
+        // Create the storage directory if it does not exist
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                Log.d(TAG, "failed to create directory")
+                return null
+            }
+        }
+        // Create a media file name
+        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val postfix = "jpg"
+        val prefix = "IMG"
+        return File(mediaStorageDir.path +
+                File.separator + prefix +
+                "_" + timeStamp + "." + postfix)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val mImage = findViewById<ImageView>(R.id.imgView)
@@ -106,52 +137,6 @@ class CreatePostActivity : AppCompatActivity(){
         //mImage.setRotation(90);
         txt.text = "File at:" + f.absolutePath + " - size = " + f.length()
 
-    }
-*/
-
-    private fun requestPermission(){
-        if(!isPermissionGiven()){
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                requestPermissions(permissions, 1)
-        }
-    }
-
-    private fun isPermissionGiven(): Boolean {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            return permissions.all {p -> checkSelfPermission(p) == PackageManager.PERMISSION_GRANTED}
-        }
-        return true
-    }
-    private fun checkPermissions() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return
-        val permissions = mutableListOf<String>()
-        if ( ! isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE) ) permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        if ( ! isGranted(Manifest.permission.CAMERA) ) permissions.add(Manifest.permission.CAMERA)
-        if (permissions.size > 0)
-            ActivityCompat.requestPermissions(this, permissions.toTypedArray(), PERMISSION_REQUEST_CODE)
-    }
-    private fun isGranted(permission: String): Boolean =
-        ActivityCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
-    // return a new file with a timestamp name in a folder named [folder] in
-    // the external directory for pictures.
-    // Return null if the file cannot be created
-    private fun getOutputMediaFile(folder: String): File? {
-        // in an emulated device you can see the external files in /sdcard/Android/data/<your app>.
-        val mediaStorageDir = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), folder)
-        // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists()) {
-            if (!mediaStorageDir.mkdirs()) {
-                Log.d(TAG, "failed to create directory")
-                return null
-            }
-        }
-        // Create a media file name
-        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        val postfix = "jpg"
-        val prefix = "IMG"
-        return File(mediaStorageDir.path +
-                File.separator + prefix +
-                "_" + timeStamp + "." + postfix)
     }
 
 }
