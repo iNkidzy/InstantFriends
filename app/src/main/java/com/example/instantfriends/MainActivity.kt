@@ -63,22 +63,31 @@ class MainActivity : AppCompatActivity() {
             //Initialized local DB's
             FriendRepository.initialize(this)
             PostRepository.initialize(this)
+
+        val mRep = PostRepository.get()
+        val posts: List<BEPost>? = mRep.getAll().value
+        if(posts == null){
+            Toast.makeText(this, "its null af", Toast.LENGTH_LONG).show()
+        }else
+        Toast.makeText(this, posts!![0].description, Toast.LENGTH_LONG).show()
+        /*val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.adapter = CustomAdapter(this, posts!!)*/
+        setupDataObserver()
         }
 
     private fun setupDataObserver() {
-        val lvPosts = findViewById<ListView>(R.id.ListView)
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         val mRep = PostRepository.get()
-        val nameObserver = Observer<List<BEPost>>{ post ->
+        val postObserver = Observer<List<BEPost>>{ post ->
             cache = post;
-            val asString = post.map { f -> "${f.description}"}
-            val adapter: ListAdapter = ArrayAdapter(
+            val asPosts = post.map { p -> BEPost(p.id,p.description,p.photoPath) }
+            val adapter = CustomAdapter(
                 this,
-                android.R.layout.activity_list_item,
-                asString.toTypedArray()
+                asPosts
             )
-            lvPosts.adapter = adapter
+            recyclerView.adapter = adapter
         }
-        mRep.getAll().observe(this, nameObserver)
+        mRep.getAll().observe(this, postObserver)
     }
 
 }
