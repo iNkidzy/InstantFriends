@@ -30,9 +30,9 @@
 
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="194dp"
                 android:id="@+id/item_image"
+                android:layout_width="match_parent"
+                android:layout_height="224dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/ic_heart" />
@@ -54,15 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="made by me"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Description"
+                    android:text="Made by Me"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
 
