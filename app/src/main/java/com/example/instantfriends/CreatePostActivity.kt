@@ -47,11 +47,11 @@ class CreatePostActivity : AppCompatActivity(){
         if(imgPath != "") {
             val post = BEPost(
                 0,
-                imgPath,
-                postDescription.text.toString()
+                postDescription.text.toString(),
+                imgPath
             )
             mRep.insert(post)
-            Toast.makeText(this, "Your post has been created", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Your post ${post.description} has been created", Toast.LENGTH_SHORT).show()
             finish()
         }
         else{
@@ -136,6 +136,7 @@ class CreatePostActivity : AppCompatActivity(){
         img.setBackgroundColor(Color.BLACK)
         //mImage.setRotation(90);
         txt.text = "File at:" + f.absolutePath + " - size = " + f.length()
+        imgPath = f.absolutePath
 
     }
 
