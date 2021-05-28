@@ -22,6 +22,8 @@ class FriendsActivity: AppCompatActivity() {
 
         val details: FloatingActionButton = findViewById(R.id.fab5)
         val posts: FloatingActionButton = findViewById(R.id.fab4)
+        details.hide()
+        posts.hide()
 
         // Fab button main post page
         findViewById<FloatingActionButton>(R.id.fab4).setOnClickListener { view ->
@@ -62,7 +64,7 @@ class FriendsActivity: AppCompatActivity() {
         val mRep = FriendRepository.get()
         val nameObserver = Observer<List<BEFriend>>{ friends ->
             cache = friends;
-            val asStrings = friends.map { f -> "${f.id}, ${f.name}"}
+            val asStrings = friends.map { f -> "${f.name}"}
             val adapter: ListAdapter = ArrayAdapter(
                 this,
                 android.R.layout.simple_list_item_1,

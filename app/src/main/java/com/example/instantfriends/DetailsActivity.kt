@@ -44,9 +44,9 @@ class DetailsActivity: AppCompatActivity() {
             val friendPhone: TextView = findViewById(R.id.numberField)
             val friendEmail: TextView = findViewById(R.id.emailField)
             val saveFriend: Button = findViewById(R.id.saveFriend)
-            val callButton: Button = findViewById(R.id.callButton)
-            val messageButton: Button = findViewById(R.id.messageButton)
-            val emailButton: Button = findViewById(R.id.emailButton)
+            val callButton: ImageButton = findViewById(R.id.callButton)
+            val messageButton: ImageButton = findViewById(R.id.messageButton)
+            val emailButton: ImageButton = findViewById(R.id.emailButton)
             val deleteFriend: Button = findViewById(R.id.deleteFriend)
 
             val nameObserver = Observer<BEFriend> { friend ->

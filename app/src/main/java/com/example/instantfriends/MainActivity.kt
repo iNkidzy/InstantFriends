@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         
         val newPost: FloatingActionButton = findViewById(R.id.fab2)
         val friends: FloatingActionButton = findViewById(R.id.fab3)
+        friends.hide()
+        newPost.hide()
 
         // Fab button create post
          findViewById<FloatingActionButton>(R.id.fab2).setOnClickListener { view ->
