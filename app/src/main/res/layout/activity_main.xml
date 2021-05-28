@@ -8,6 +8,63 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            app:layoutManager="LinearLayoutManager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+
+        <LinearLayout
+            android:id="@+id/frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:contentDescription="newPost"
+                android:src="@drawable/ic_add"
+                app:backgroundTint="@color/teal_200"
+                app:layout_anchor="@id/frame"
+                app:layout_anchorGravity="bottom|right" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:contentDescription="friends"
+                android:src="@drawable/ic_add"
+                app:backgroundTint="@color/blue"
+                app:layout_anchor="@id/fab"
+                app:layout_anchorGravity="bottom|right" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:contentDescription="Expand"
+                android:src="@drawable/ic_add"
+                app:backgroundTint="@color/blue"
+                app:layout_anchor="@id/fab"
+                app:layout_anchorGravity="bottom|right" />
+
+        </LinearLayout>
+    </FrameLayout>
+
  <!-- <com.google.android.material.appbar.AppBarLayout
       android:id="@+id/topAppBar"
       android:layout_width="match_parent"
@@ -25,13 +82,7 @@
   </com.google.android.material.appbar.AppBarLayout> -->
 
 
-    <ListView
-        android:id="@+id/list_view"
-        android:layout_width="match_parent"
-        android:layout_height="610dp"
-        android:layout_marginTop="40dp"/>
-
-     <!--  <androidx.core.widget.NestedScrollView
+    <!--  <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -91,49 +142,4 @@
         </androidx.core.widget.NestedScrollView>  Coordinatorview -->
 
 
-    <LinearLayout
-        android:id="@+id/frame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:layout_anchor="@id/list_view"
-        app:layout_anchorGravity="bottom|right"
-        android:orientation="vertical">
-
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:contentDescription="newPost"
-            android:src="@drawable/ic_add"
-            app:backgroundTint="@color/teal_200"
-            app:layout_anchor="@id/frame"
-            app:layout_anchorGravity="bottom|right"
-           />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:contentDescription="friends"
-            android:src="@drawable/ic_add"
-            app:backgroundTint="@color/blue"
-            app:layout_anchor="@id/fab"
-            app:layout_anchorGravity="bottom|right" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:contentDescription="Expand"
-            android:src="@drawable/ic_add"
-            app:backgroundTint="@color/blue"
-            app:layout_anchor="@id/fab"
-            app:layout_anchorGravity="bottom|right" />
-
-    </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
