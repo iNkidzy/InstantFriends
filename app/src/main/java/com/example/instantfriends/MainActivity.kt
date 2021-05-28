@@ -23,7 +23,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        //Initialized local DB's
+        FriendRepository.initialize(this)
+        PostRepository.initialize(this)
+        
         val newPost: FloatingActionButton = findViewById(R.id.fab2)
         val friends: FloatingActionButton = findViewById(R.id.fab3)
 
@@ -58,20 +61,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-        //setupDataObserver()
-
-            //Initialized local DB's
-            FriendRepository.initialize(this)
-            PostRepository.initialize(this)
-
-        val mRep = PostRepository.get()
-        val posts: List<BEPost>? = mRep.getAll().value
-        if(posts == null){
-            Toast.makeText(this, "its null af", Toast.LENGTH_LONG).show()
-        }else
-        Toast.makeText(this, posts!![0].description, Toast.LENGTH_LONG).show()
-        /*val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.adapter = CustomAdapter(this, posts!!)*/
         setupDataObserver()
         }
 
